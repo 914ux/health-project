@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title or "健康チェック" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{{ url_for('static', filename='css/layout.css') }}" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <h1>健康ダッシュボード</h1>
+    <nav>
+      <a href="/">1 体重</a>
+      <a href="/food">2 朝ごはん</a>
+      <a href="/sleep">3 睡眠</a>
+      <a href="/active">5 運動</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; 2025 健康アプリ（試作）</small>
+  </footer>
+</body>
+</html>

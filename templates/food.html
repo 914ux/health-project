@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card">
+  <h2>2. 朝ごはんは食べましたか？</h2>
+
+  <p class="muted">1日の目安カロリー: <strong>{{ kcal_target }} kcal</strong> ／ 朝食目安（25%）: <strong>{{ kcal_breakfast }} kcal</strong></p>
+
+  <form method="post" class="form-vertical" action="{{ url_for('food') }}">
+    <div>
+      <label><input type="radio" name="breakfast" value="yes" checked> はい</label>
+      <label><input type="radio" name="breakfast" value="no"> いいえ</label>
+    </div>
+
+    <div class="actions">
+      <button type="submit">次へ →</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

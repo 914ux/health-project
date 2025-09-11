@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card">
+  <h2>5. 昨日の運動量</h2>
+  {% if sleep_result %}<p class="muted">睡眠：{{ sleep_result }}</p>{% endif %}
+  <form method="post" class="form-grid" action="{{ url_for('active') }}">
+    <label>筋トレ（h）
+      <input type="number" step="0.1" min="0" name="h_muscle" value="{{ session.get('h_muscle','0') }}">
+    </label>
+    <label>ランニング（h）
+      <input type="number" step="0.1" min="0" name="h_run" value="{{ session.get('h_run','0') }}">
+    </label>
+    <label>ウォーキング（h）
+      <input type="number" step="0.1" min="0" name="h_walk" value="{{ session.get('h_walk','0') }}">
+    </label>
+    <label>その他（h）
+      <input type="number" step="0.1" min="0" name="h_other" value="{{ session.get('h_other','0') }}">
+    </label>
+
+    <div class="actions">
+      <button type="submit">結果を見る →</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

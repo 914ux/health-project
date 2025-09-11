@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card">
+  <h2>6. 推奨運動量とまとめ</h2>
+
+  <div class="grid-2">
+    <div>
+      <h3>睡眠の判定</h3>
+      <p>{{ session.get('sleep_result') }}</p>
+      <p class="muted">{{ session.get('sleep_advice') }}</p>
+    </div>
+    <div>
+      <h3>朝ごはん</h3>
+      {% if breakfast_yes %}
+        <p>朝食をとりました。目安は <strong>{{ kcal_breakfast }} kcal</strong>（1日の25%）。</p>
+      {% else %}
+        <p>朝食は未摂取。1日の目安 <strong>{{ kcal_target }} kcal</strong> を3食でバランス良く。</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <h3>平均推奨運動量</h3>
+    <p>中強度で1日あたり目安 <strong>{{ recommended_minutes }} 分</strong>。</p>
+    {% if did_enough %}
+      <p class="good">YES！基準達成。素晴らしい！</p>
+    {% else %}
+      <p class="warn">NO…今日はあと少しだけ体を動かしましょう。</p>
+    {% endif %}
+  </div>
+
+  <hr>
+
+  <h3>AIの総評コメント</h3>
+  <p>{{ ai_comment }}</p>
+
+  <div class="actions">
+    <a class="button" href="{{ url_for('index') }}">最初のページへ戻る</a>
+  </div>
+</section>
+{% endblock %}

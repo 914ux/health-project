@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card">
+  <h2>1. 体重の入力</h2>
+  <form method="post" class="form-grid" action="{{ url_for('body') }}">
+    <label>年齢
+      <input type="number" name="age" min="0" max="120" value="{{ session.get('age','') }}" required>
+    </label>
+
+    <fieldset class="radio-row">
+      <legend>性別</legend>
+      <label><input type="radio" name="sex" value="male"  {{ 'checked' if session.get('sex','male')=='male' else '' }}> 男性</label>
+      <label><input type="radio" name="sex" value="female" {{ 'checked' if session.get('sex')=='female' else '' }}> 女性</label>
+    </fieldset>
+
+    <label>体重 (kg)
+      <input type="number" step="0.1" name="weight" value="{{ session.get('weight','') }}" required>
+    </label>
+
+    <div class="actions">
+      <button type="submit">次へ →</button>
+    </div>
+  </form>
+</section>
+{% endblock %}
